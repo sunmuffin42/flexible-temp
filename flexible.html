@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module flexible</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>flexible</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/sunny/Documents/lx/flexible/flexible.py">/home/sunny/Documents/lx/flexible/flexible.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;v12</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xml.etree.ElementTree.html">xml.etree.ElementTree</a><br>
+</td><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-add_word_el"><strong>add_word_el</strong></a>(tokenized_utt: List[str], phrase_el: xml.etree.ElementTree.Element, lg: str)</dt><dd><tt>Populate&nbsp;a&nbsp;phrase&nbsp;element&nbsp;with&nbsp;a&nbsp;tokenized&nbsp;utterance<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tokenized_utt:&nbsp;a&nbsp;list&nbsp;with&nbsp;tokens&nbsp;from&nbsp;an&nbsp;utterance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;phrase_el:&nbsp;the&nbsp;element&nbsp;that&nbsp;will&nbsp;be&nbsp;the&nbsp;parent&nbsp;to&nbsp;the&nbsp;words&nbsp;added&nbsp;(below&nbsp;the&nbsp;words&nbsp;el&nbsp;in&nbsp;the&nbsp;phrase_el&nbsp;will&nbsp;be&nbsp;the&nbsp;items&nbsp;w/&nbsp;translations&nbsp;and&nbsp;notes)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lg:&nbsp;the&nbsp;language&nbsp;whose&nbsp;word-forming&nbsp;characters&nbsp;are&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;tokenization<br>
+&nbsp;<br>
+Makes&nbsp;changes&nbsp;in&nbsp;place&nbsp;(returns&nbsp;nothing)</tt></dd></dl>
+ <dl><dt><a name="-make_assoc_annotation"><strong>make_assoc_annotation</strong></a>(base_tier_name: str, tier_type: str, content_dict: dict, parent_aID: str, aID_count: int, eaf: xml.etree.ElementTree.ElementTree)</dt><dd><tt>Make&nbsp;an&nbsp;annotation&nbsp;of&nbsp;the&nbsp;type&nbsp;Symbolic&nbsp;Association<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;base_tier_name:&nbsp;the&nbsp;prefix&nbsp;for&nbsp;the&nbsp;tiers&nbsp;to&nbsp;be&nbsp;made;&nbsp;will&nbsp;include&nbsp;at&nbsp;minimum&nbsp;the&nbsp;speaker&nbsp;code<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tier_type:&nbsp;the&nbsp;type&nbsp;of&nbsp;tier&nbsp;in&nbsp;ELAN,&nbsp;defined&nbsp;by&nbsp;the&nbsp;kind&nbsp;of&nbsp;content&nbsp;in&nbsp;it,&nbsp;such&nbsp;as&nbsp;morphological&nbsp;gloss&nbsp;or&nbsp;translation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content_dict:&nbsp;the&nbsp;dict&nbsp;of&nbsp;items&nbsp;to&nbsp;be&nbsp;read&nbsp;from,&nbsp;where&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;annotation&nbsp;will&nbsp;be.&nbsp;This&nbsp;will&nbsp;either&nbsp;be&nbsp;a&nbsp;dict&nbsp;containing&nbsp;information&nbsp;of&nbsp;a&nbsp;phrase,&nbsp;a&nbsp;word,&nbsp;or&nbsp;a&nbsp;morph<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content_aID:&nbsp;the&nbsp;aID&nbsp;of&nbsp;the&nbsp;parent&nbsp;element&nbsp;to&nbsp;the&nbsp;one&nbsp;being&nbsp;created<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aID_count:&nbsp;the&nbsp;present&nbsp;aID&nbsp;in&nbsp;the&nbsp;count&nbsp;as&nbsp;we&nbsp;create&nbsp;more&nbsp;annotations<br>
+&nbsp;<br>
+Returns&nbsp;next&nbsp;aID&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;creation&nbsp;of&nbsp;the&nbsp;EAF;&nbsp;makes&nbsp;changes&nbsp;to&nbsp;EAF&nbsp;XML&nbsp;document&nbsp;tree&nbsp;in&nbsp;place</tt></dd></dl>
+ <dl><dt><a name="-make_times"><strong>make_times</strong></a>(flextext: xml.etree.ElementTree.Element)</dt><dd><tt>Make&nbsp;the&nbsp;TIME_ORDER&nbsp;element&nbsp;for&nbsp;the&nbsp;output&nbsp;EAF<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flextext:&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;parsed&nbsp;flextext&nbsp;exported&nbsp;from&nbsp;FLEx<br>
+&nbsp;<br>
+Returns&nbsp;an&nbsp;ET.Element&nbsp;of&nbsp;TIME_ORDER</tt></dd></dl>
+ <dl><dt><a name="-parse_phrase"><strong>parse_phrase</strong></a>(para: xml.etree.ElementTree.Element)</dt><dd><tt>CURRENTLY&nbsp;DOES&nbsp;NOT&nbsp;DO&nbsp;ANYTHING<br>
+Parse&nbsp;a&nbsp;paragraph&nbsp;element&nbsp;into&nbsp;tiers&nbsp;for&nbsp;an&nbsp;EAF<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;para:&nbsp;the&nbsp;flextext&nbsp;paragraph&nbsp;element&nbsp;to&nbsp;be&nbsp;parsed<br>
+&nbsp;<br>
+Returns&nbsp;list&nbsp;of&nbsp;TIERs&nbsp;for&nbsp;ELAN</tt></dd></dl>
+ <dl><dt><a name="-print_el_info"><strong>print_el_info</strong></a>(el: xml.etree.ElementTree.Element)</dt><dd><tt>Print&nbsp;the&nbsp;tag,&nbsp;attributes,&nbsp;text,&nbsp;and&nbsp;number&nbsp;of&nbsp;children&nbsp;of&nbsp;an&nbsp;ET.Element<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;el:&nbsp;Element&nbsp;to&nbsp;be&nbsp;printed</tt></dd></dl>
+ <dl><dt><a name="-remove_constraint"><strong>remove_constraint</strong></a>(constraint: str, eaf: xml.etree.ElementTree.Element)</dt><dd><tt>Remove&nbsp;the&nbsp;tiers&nbsp;that&nbsp;use&nbsp;the&nbsp;"Included&nbsp;In"&nbsp;stereotype&nbsp;constraint<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;eaf:&nbsp;The&nbsp;root&nbsp;element&nbsp;of&nbsp;an&nbsp;EAF&nbsp;file<br>
+&nbsp;<br>
+Makes&nbsp;changes&nbsp;in&nbsp;place&nbsp;(returns&nbsp;nothing)</tt></dd></dl>
+ <dl><dt><a name="-time_values"><strong>time_values</strong></a>(eaf_root: xml.etree.ElementTree.Element)</dt><dd><tt>Get&nbsp;time&nbsp;IDs&nbsp;and&nbsp;values&nbsp;from&nbsp;an&nbsp;EAF&nbsp;file<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;eaf_root:&nbsp;the&nbsp;root&nbsp;element&nbsp;of&nbsp;an&nbsp;EAF&nbsp;object&nbsp;parsed&nbsp;through&nbsp;ElementTree<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;time&nbsp;ID&nbsp;and&nbsp;value&nbsp;pairs</tt></dd></dl>
+ <dl><dt><a name="-tokenize"><strong>tokenize</strong></a>(phrase: str, lg: str)</dt><dd><tt>Tokenize&nbsp;an&nbsp;utterance&nbsp;based&nbsp;on&nbsp;specified&nbsp;word-forming&nbsp;characters.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;phrase:&nbsp;the&nbsp;string&nbsp;to&nbsp;be&nbsp;tokenized<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lg:&nbsp;the&nbsp;language&nbsp;whose&nbsp;word-forming&nbsp;characters&nbsp;are&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;tokenization<br>
+&nbsp;<br>
+Return&nbsp;list&nbsp;of&nbsp;tokens</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>List</strong> = typing.List</td></tr></table>
+</body></html>
